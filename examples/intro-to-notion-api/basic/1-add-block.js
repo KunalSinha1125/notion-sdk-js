@@ -3,8 +3,8 @@ import { config } from "dotenv"
 
 config()
 
-const pageId = process.env.NOTION_PAGE_ID
-const apiKey = process.env.NOTION_API_KEY
+const pageId = "bbb69ca80285483ea9e37100fd4de99d"
+const apiKey = "secret_93JFXrkeqpyllXKvDPr8JbX1of81NOzTsqgmTycz5Ed"
 
 const notion = new Client({ auth: apiKey })
 

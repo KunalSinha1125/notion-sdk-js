@@ -127,16 +127,27 @@ commentForm.onsubmit = async function (event) {
 
   const pageID = event.target.pageIDComment.value
   const comment = event.target.comment.value
-  const body = JSON.stringify({ pageID, comment })
-
+  const discussionID = "a4d0cdd61d694fa38aa7156ded57095b"
+  const body = JSON.stringify({ pageID , comment})
   const newCommentResponse = await fetch("/comments", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Notion-Version": "2022-06-28"
     },
     body,
   })
 
   const newCommentData = await newCommentResponse.json()
   appendApiResponse(newCommentData, commentResponseEl)
+
+  // const retrievalURL = `/comments?block_id=${encodeURIComponent(pageID)}`
+  // console.log(retrievalURL);
+  // const newCommentRetrievalResponse = await fetch(`/comments?block_id=${encodeURIComponent(pageID)}`, {
+  //   method: "GET",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  // })
+  // console.log(newCommentRetrievalResponse);
 }
